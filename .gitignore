@@ -1,0 +1,107 @@
+# -------------------------------
+# Project-Specific Exclusions
+# -------------------------------
+
+# Training dataset
+training/dataset/
+
+# Jupyter notebook (private training file)
+car_damage_detection.ipynb
+
+# *.pth
+
+
+# -------------------------------
+# Python
+# -------------------------------
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# -------------------------------
+# Virtual Environments
+# -------------------------------
+
+venv/
+.env/
+.env.*
+.venv/
+ENV/
+
+# -------------------------------
+# Jupyter
+# -------------------------------
+
+.ipynb_checkpoints
+
+# -------------------------------
+# Environment Variables
+# -------------------------------
+
+.env
+.env.local
+.env.production
+
+# -------------------------------
+# IDE / Editor
+# -------------------------------
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# -------------------------------
+# OS Files
+# -------------------------------
+
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# Logs
+# -------------------------------
+
+*.log
+logs/
+
+# -------------------------------
+# Streamlit
+# -------------------------------
+
+.streamlit/secrets.toml
+
+# -------------------------------
+# PyTorch / CUDA
+# -------------------------------
+
+*.pt
+*.ckpt
+
+# -------------------------------
+# Temporary Files
+# -------------------------------
+
+*.tmp
+*.temp
