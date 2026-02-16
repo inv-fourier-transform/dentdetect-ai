@@ -10,6 +10,8 @@ car_damage_detection.ipynb
 
 # *.pth
 
+# cached file
+temp_file.jpg
 
 # -------------------------------
 # Python
