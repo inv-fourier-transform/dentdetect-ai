@@ -10,8 +10,8 @@ car_damage_detection.ipynb
 
 # *.pth
 
-# cached file
-temp_file.jpg
+# Ignore temp_file.jpg in any folder
+**/temp_file.jpg
 
 # -------------------------------
 # Python
