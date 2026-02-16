@@ -1,5 +1,12 @@
+import sys
+from pathlib import Path
+
+# Add project root to Python path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
+from core.model_helper import predict_damage
 import streamlit as st
-from model_helper import predict_damage
 import os
 
 # -------------------------------------------------

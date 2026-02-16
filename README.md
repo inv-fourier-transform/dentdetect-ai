@@ -76,28 +76,31 @@ DentDetect AI is a machine learning proof-of-concept that automatically assesses
 ```
 Car_Damage_Detection/
 │
-├── Artifacts/                    # Frontend prediction screenshots
+├── .gitignore                        # Git ignore file
+├── Artifacts/                        # Frontend prediction screenshots
 │
-├── fastapi_backend/              # FastAPI backend server
-│   ├── models/
-│   │   └── saved_model.pth       # Trained model weights
-│   ├── model_definition.py       # Neural network architecture
-│   ├── model_helper.py           # Prediction utilities
-│   └── server.py                 # FastAPI server entry point
+├── core/                             # Shared logic (used by Streamlit & FastAPI)
+│   ├── __init__.py
+│   ├── model_definition.py           # Neural network architecture
+│   └── model_helper.py               # Prediction utilities
 │
-├── streamlit_app/                # Streamlit frontend application
-│   ├── models/
-│   │   └── saved_model.pth       # Trained model weights
-│   ├── model_definition.py       # Neural network architecture
-│   ├── model_helper.py           # Prediction utilities
-│   ├── app.py                    # Frontend UI v1
-│   └── app_v2.py                 # Frontend UI v2 (Recommended)
+├── models/
+│   └── saved_model.pth               # Trained model weights
 │
-├── training/dataset/             # Training dataset (not included in repo)
+├── fastapi_backend/                  # FastAPI backend server
+│   └── server.py                     # FastAPI server entry point
 │
-├── car_damage_detection.ipynb    # Model training notebook (not included in repo)
-├── requirements.txt              # Python dependencies
-└── README.md                     # Project documentation
+├── streamlit_app/                    # Streamlit frontend application
+│   ├── app.py                        # Frontend UI v1
+│   └── app_v2.py                     # Frontend UI v2 (Recommended)
+│
+├── training/
+│   └── dataset/                      # Training dataset (not included in repo)
+│
+├── car_damage_detection.ipynb        # Model training notebook (not included in repo)
+├── requirements.txt                  # Python dependencies
+└── README.md                         # Project documentation
+
 ```
 
 ---
@@ -135,10 +138,9 @@ pip install -r requirements.txt
 
 ### 4. Download Model Weights
 
-Place the trained model file `saved_model.pth` in both:
+Place the trained model file `saved_model.pth` in:
 
-- `fastapi_backend/models/`
-- `streamlit_app/models/`
+- `/models/`
 
 ---
 
@@ -149,8 +151,7 @@ Place the trained model file `saved_model.pth` in both:
 Navigate to the backend directory and start the server:
 
 ```bash
-cd fastapi_backend
-uvicorn server:app --reload --host 0.0.0.0 --port 8000
+uvicorn fastapi_backend.server:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The API will be available at:
@@ -182,8 +183,7 @@ http://localhost:8000
 Open a new terminal, navigate to the streamlit_app directory, and run:
 
 ```bash
-cd streamlit_app
-streamlit run app_v2.py
+streamlit run streamlit_app/app_v2.py
 ```
 
 ### Access the Application
@@ -254,7 +254,6 @@ To retrain the model with your own data:
 2. Update paths in `car_damage_detection.ipynb`  
 3. Run training cells with Optuna hyperparameter search  
 4. Export best model to `saved_model.pth`  
-5. Copy model to both `fastapi_backend/models/` and `streamlit_app/models/`  
 
 ---
 

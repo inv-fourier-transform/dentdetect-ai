@@ -1,5 +1,13 @@
+import sys
+from pathlib import Path
+
+# Add project root to Python path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
+from core.model_helper import predict_damage
+
 from fastapi import FastAPI, File, UploadFile
-from model_helper import predict_damage
 
 app = FastAPI()
 

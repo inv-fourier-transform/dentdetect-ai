@@ -1,5 +1,5 @@
 import streamlit as st
-from model_helper import predict_damage
+from core.model_helper import predict_damage
 
 st.title("Vehicle Damage Detection")
 st.subheader("Upload an image of a vehicle to detect damage.")
