@@ -28,8 +28,11 @@ def predict_damage(image_path):
 
             trained_model = CarClassifierResNetFinal(num_classes=6, dropout_rate=0.33754833234743464)
 
-            # Load the model weights
-            trained_model.load_state_dict(torch.load(MODEL_PATH))
+            # Load the model weights (remove the map_location parameter for inferencing on local if 'gpu' is being used
+            # I've added map_location parameter as Streamlit Cloud supports CPU-only
+            trained_model.load_state_dict(
+                torch.load(MODEL_PATH, map_location=torch.device('cpu'))
+            )
 
             # Evaluation mode
             trained_model.eval()
